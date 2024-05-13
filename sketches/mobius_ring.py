@@ -1,6 +1,4 @@
 # %%
-import math
-
 from build123d import *
 from ocp_vscode import *
 
@@ -8,35 +6,24 @@ from ocp_vscode import *
 diameter = 100
 segments = 100
 profile_thickness = 5
-profile_chamfer = 0.5
+profile_chamfer = 0.8
 
+profile = RectangleRounded(profile_thickness, profile_thickness, radius=profile_chamfer)
 
-# %%
-def half(rot, a0=0):
-    pts = []
-    for i in range(segments):
-        a = a0 + i / (segments - 1) * math.pi
-        pts.append((diameter / 2 * math.cos(a), diameter / 2 * math.sin(a)))
+straight_path = CenterArc((0, 0), diameter / 2, 0, 180)
+straight = sweep((straight_path ^ 0) * profile, straight_path)
 
-    line = Polyline(*pts).wire()
+twisted_path = CenterArc((0, 0), diameter / 2, 180, 180)
+twisted = sweep(
+    [
+        (twisted_path ^ t) * profile.rotate(Axis.Z, t * 180)
+        for t in [i / (segments - 1) for i in range(segments)]
+    ],
+    twisted_path,
+    multisection=True,
+)
 
-    sections = []
-    for i in range(segments):
-        t = i / (segments - 1)
-
-        plane = Plane(line @ t, z_dir=line % t)
-        sections += plane * RectangleRounded(
-            profile_thickness,
-            profile_thickness,
-            radius=profile_chamfer,
-            rotation=rot(t),
-        )
-
-    return sweep(sections, line, multisection=True)
-
-
-ring = half(rot=lambda t: t * 180) + half(a0=math.pi, rot=lambda _: 0)
-
+ring = straight + twisted
 
 try:
     show(ring)
