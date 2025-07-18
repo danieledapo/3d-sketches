@@ -6,123 +6,170 @@
 #   features: []
 #   all-features: false
 #   with-sources: false
+#   generate-hashes: false
+#   universal: false
 
 -e file:.
-anytree==2.12.1
+anytree==2.13.0
     # via build123d
-asttokens==2.4.1
+asttokens==3.0.0
     # via stack-data
-build123d @ git+https://github.com/gumyr/build123d@a0b7b8d217e76aceeb5bd4ea4a40e82e96a0efaa
+blinker==1.9.0
+    # via flask
+build123d @ git+https://github.com/gumyr/build123d@108c1be3f2779236f6e691b9a866673b3b2c9b3a
     # via 3d-sketches
-cachetools==5.2.1
+cachetools==5.5.2
     # via ocp-tessellate
-cadquery-ocp==7.7.2
+cadquery-ocp==7.8.1.1.post1
     # via build123d
     # via ocpsvg
-certifi==2024.2.2
+certifi==2025.4.26
     # via requests
-charset-normalizer==3.3.2
+charset-normalizer==3.4.2
     # via requests
+click==8.1.8
+    # via flask
+    # via ocp-vscode
 comm==0.2.2
     # via ipykernel
-debugpy==1.8.1
+contourpy==1.3.2
+    # via matplotlib
+cycler==0.12.1
+    # via matplotlib
+debugpy==1.8.14
     # via ipykernel
-decorator==5.1.1
+decorator==5.2.1
     # via ipython
-executing==2.0.1
+executing==2.2.0
     # via stack-data
-ezdxf==1.3.0
+ezdxf==1.4.1
     # via build123d
-fonttools==4.51.0
+flask==3.1.0
+    # via flask-sock
+    # via ocp-vscode
+flask-sock==0.7.0
+    # via ocp-vscode
+fonttools==4.57.0
     # via ezdxf
-idna==3.7
+    # via matplotlib
+h11==0.16.0
+    # via wsproto
+idna==3.10
     # via requests
 imagesize==1.4.1
     # via ocp-tessellate
-ipykernel==6.29.4
+ipykernel==6.29.5
     # via ocp-vscode
-ipython==8.24.0
+ipython==9.2.0
     # via build123d
     # via ipykernel
-jedi==0.19.1
+ipython-pygments-lexers==1.1.1
     # via ipython
-jupyter-client==8.6.1
+itsdangerous==2.2.0
+    # via flask
+jedi==0.19.2
+    # via ipython
+jinja2==3.1.6
+    # via flask
+jupyter-client==8.6.3
     # via ipykernel
 jupyter-core==5.7.2
     # via ipykernel
     # via jupyter-client
+kiwisolver==1.4.8
+    # via matplotlib
+lib3mf==2.4.1
+    # via build123d
+markupsafe==3.0.2
+    # via jinja2
+    # via werkzeug
+matplotlib==3.10.1
+    # via vtk
 matplotlib-inline==0.1.7
     # via ipykernel
     # via ipython
+mpmath==1.3.0
+    # via sympy
 nest-asyncio==1.6.0
     # via ipykernel
-numpy==1.26.4
+numpy==2.2.5
     # via build123d
+    # via contourpy
     # via ezdxf
-    # via numpy-quaternion
-    # via numpy-stl
+    # via matplotlib
     # via ocp-tessellate
     # via scipy
     # via svgpathtools
-numpy-quaternion==2023.0.3
-    # via ocp-tessellate
-numpy-stl==3.1.1
-    # via build123d
-ocp-tessellate==2.3.3
+ocp-tessellate==3.0.15
     # via ocp-vscode
-ocp-vscode==2.3.3
-ocpsvg==0.2.0
+ocp-vscode==2.8.5
+ocpsvg==0.5.0
     # via build123d
-orjson==3.10.3
+orjson==3.10.18
     # via ocp-vscode
-packaging==24.0
+packaging==25.0
     # via ipykernel
+    # via matplotlib
 parso==0.8.4
     # via jedi
 pexpect==4.9.0
     # via ipython
-platformdirs==4.2.1
+pillow==11.2.1
+    # via matplotlib
+pip==25.1.1
+    # via ocp-vscode
+platformdirs==4.3.8
     # via jupyter-core
-prompt-toolkit==3.0.43
+prompt-toolkit==3.0.51
     # via ipython
-psutil==5.9.8
+    # via questionary
+psutil==7.0.0
     # via ipykernel
 ptyprocess==0.7.0
     # via pexpect
-pure-eval==0.2.2
+pure-eval==0.2.3
     # via stack-data
-py-lib3mf==2.3.1
-    # via build123d
-pygments==2.18.0
+pyaml==25.1.0
+    # via ocp-vscode
+pygments==2.19.1
     # via ipython
-pyparsing==3.1.2
+    # via ipython-pygments-lexers
+pyparsing==3.2.3
     # via ezdxf
+    # via matplotlib
+pyperclip==1.9.0
+    # via ocp-vscode
 python-dateutil==2.9.0.post0
     # via jupyter-client
-python-utils==3.8.2
-    # via numpy-stl
-pyzmq==26.0.3
+    # via matplotlib
+pyyaml==6.0.2
+    # via pyaml
+pyzmq==26.4.0
     # via ipykernel
     # via jupyter-client
-requests==2.31.0
+questionary==2.1.0
     # via ocp-vscode
-scipy==1.13.0
+requests==2.32.3
+    # via ocp-vscode
+scipy==1.15.2
+    # via build123d
     # via svgpathtools
-six==1.16.0
-    # via anytree
-    # via asttokens
+simple-websocket==1.1.0
+    # via flask-sock
+six==1.17.0
     # via python-dateutil
 stack-data==0.6.3
     # via ipython
 svgelements==1.9.6
     # via ocpsvg
-svgpathtools==1.6.1
+svgpathtools==1.7.0
     # via 3d-sketches
     # via build123d
-    # via ocpsvg
 svgwrite==1.4.3
     # via svgpathtools
-tornado==6.4
+sympy==1.14.0
+    # via build123d
+tornado==6.4.2
     # via ipykernel
     # via jupyter-client
 traitlets==5.14.3
@@ -134,15 +181,20 @@ traitlets==5.14.3
     # via matplotlib-inline
 trianglesolver==1.2
     # via build123d
-typing-extensions==4.11.0
+typing-extensions==4.13.2
     # via build123d
     # via ezdxf
-    # via python-utils
-urllib3==2.2.1
+urllib3==2.4.0
     # via requests
+vtk==9.3.1
+    # via cadquery-ocp
 wcwidth==0.2.13
     # via prompt-toolkit
-webcolors==1.13
+webcolors==24.8.0
     # via ocp-tessellate
-websockets==12.0
+websockets==13.1
     # via ocp-vscode
+werkzeug==3.1.3
+    # via flask
+wsproto==1.2.0
+    # via simple-websocket

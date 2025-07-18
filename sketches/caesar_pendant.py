@@ -44,10 +44,9 @@ arcs = [
 ]
 
 arc_profile = Rectangle(thickness, height, align=(Align.CENTER, Align.MAX))
-pendant += [sweep((a.wire() ^ 0) * arc_profile, a.wire()) for a in arcs]
+pendant += [sweep((a.edge() ^ 0) * arc_profile, a.edge()) for a in arcs]
 
 pendant = fillet(pendant.edges().filter_by(Plane.XY), 0.3)
-
 
 try:
     show(pendant)
