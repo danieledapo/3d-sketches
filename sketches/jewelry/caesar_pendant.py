@@ -9,7 +9,7 @@ height = 2
 thickness = 1
 
 pendant = extrude(Circle(radius), height)
-pendant = offset(pendant, -thickness, openings=pendant.faces().filter_by(Axis.Z))
+pendant = offset(pendant, -thickness, openings=pendant.faces().filter_by(Plane.XY))
 
 radius -= 0.05
 arcs = [

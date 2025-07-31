@@ -46,9 +46,6 @@ reinforce_panel = Box(
 )
 reinforce_panel.label = "Reinforce"
 
-print(top_panel.width)
-print(top_panel.height)
-
 carcass: list[Box] = [
     # top and side panels
     Plane.XY.offset(height) * top_panel,
@@ -90,6 +87,6 @@ for label, (count, part) in sorted(
 try:
     show([washing_machine, *carcass])
 except RuntimeError:
-    export_stl(carcass, "washing_machine_cabinet.stl")
+    export_stl(Compound(carcass), "washing_machine_cabinet.stl")
 
 # %%
