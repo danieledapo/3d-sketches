@@ -10,14 +10,9 @@ dependencies = [
 readme = "README.md"
 requires-python = ">= 3.12"
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-dev-dependencies = [
-    "ocp-vscode>=2.8.5",
+[dependency-groups]
+dev = [
+    "ocp-vscode>=2.8.9",
 ]
 
 [tool.ruff.lint]
@@ -25,8 +20,3 @@ dev-dependencies = [
 # it's all star imports with build123d and friends
 ignore = ["F403", "F405"]
 
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["sketches/"]
